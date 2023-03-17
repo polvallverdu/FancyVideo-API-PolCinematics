@@ -31,7 +31,6 @@ import nick1st.fancyvideo.api.eventbus.EventException;
 import nick1st.fancyvideo.api.eventbus.FancyVideoEventBus;
 import nick1st.fancyvideo.api.eventbus.event.PlayerRegistryEvent;
 import nick1st.fancyvideo.config.SimpleConfig;
-import nick1st.fancyvideo.example.APIExample;
 import nick1st.fancyvideo.internal.Arch;
 import nick1st.fancyvideo.internal.DLLHandler;
 import nick1st.fancyvideo.internal.LibraryMapping;
@@ -82,16 +81,6 @@ public class CommonMainClass {
         }
 
         Runtime.getRuntime().addShutdownHook(new ShutdownHook());
-
-        // Setup Example?
-        if (config.getAsBool("example")) {
-            try {
-                APIExample example = new APIExample();
-                FancyVideoEventBus.getInstance().registerEvent(example);
-            } catch (EventException e) {
-                Constants.LOG.error("A critical error happened", e);
-            }
-        }
     }
 
     /**
