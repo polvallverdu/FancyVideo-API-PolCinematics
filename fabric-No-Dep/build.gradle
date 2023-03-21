@@ -10,7 +10,7 @@ configurations {
     implementation.extendsFrom shadow
 }
 
-archivesBaseName = "${mod_name}-fabric"
+archivesBaseName = "${mod_name}-fabric-No-Dep"
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
