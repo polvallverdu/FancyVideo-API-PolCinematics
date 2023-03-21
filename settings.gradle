@@ -18,7 +18,8 @@ pluginManagement {
 
 rootProject.name = 'FancyVideo-API'
 include(
-    "Common",
-    "Fabric",
-    "Forge",
+    "common",
+    "fabric",
+    "fabric-No-Dep",
+    "forge",
 )
