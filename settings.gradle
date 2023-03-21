@@ -20,5 +20,5 @@ rootProject.name = 'FancyVideo-API'
 include(
     "Common",
     "Fabric",
-    //"Forge" NOT USING FORGE FOR NOW
+    "Forge",
 )

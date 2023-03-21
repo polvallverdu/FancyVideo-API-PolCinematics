@@ -26,17 +26,12 @@
 package nick1st.fancyvideo; //NOSONAR
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.EventSubclassTransformer;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import nick1st.fancyvideo.api.eventbus.FancyVideoEventBus;
 import nick1st.fancyvideo.config.SimpleConfig;
-import nick1st.fancyvideo.example.DrawBackgroundEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.filter.AbstractFilter;
@@ -85,11 +80,11 @@ public class FancyVideoAPI {
 
         commonClass = new CommonMainClass(config);
 
-        MinecraftForge.EVENT_BUS.addListener(this::firstRenderTick);
-        MinecraftForge.EVENT_BUS.addListener(this::drawBackground);
+        // MinecraftForge.EVENT_BUS.addListener(this::firstRenderTick);
+        // MinecraftForge.EVENT_BUS.addListener(this::drawBackground);
     }
 
-    public void firstRenderTick(TickEvent.RenderTickEvent event) {
+    /*public void firstRenderTick(TickEvent.RenderTickEvent event) {
         if (!Constants.renderTick) {
             commonClass.apiSetup();
             Constants.renderTick = true;
@@ -98,5 +93,5 @@ public class FancyVideoAPI {
 
     public void drawBackground(ScreenEvent.BackgroundDrawnEvent e) {
         FancyVideoEventBus.getInstance().runEvent(new DrawBackgroundEvent(e.getScreen(), e.getPoseStack()));
-    }
+    }*/
 }
