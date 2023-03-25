@@ -1,3 +1,7 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
 architectury {
     common(rootProject.enabled_platforms.split(","))
 }
@@ -14,6 +18,10 @@ dependencies {
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
 
     implementation("uk.co.caprica:vlcj:${rootProject.vlcj_version}") // vlcJ
+}
+
+shadowJar {
+    //relocate 'uk.co.caprica', 'nick1st.uk.co.caprica' // <- this realocates the package
 }
 
 publishing {
