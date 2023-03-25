@@ -28,10 +28,10 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    shadowCommon(implementation("uk.co.caprica:vlcj:${vlcj_version}")) {
+    shadow(implementation("uk.co.caprica:vlcj:${vlcj_version}") {
         exclude group: 'net.java.dev.jna', module: 'jna'
         exclude group: 'net.java.dev.jna', module: 'jna-platform'
-    }
+    })
 }
 
 processResources {
@@ -44,14 +44,14 @@ processResources {
 
 shadowJar {
     exclude 'META-INF/maven/**'
+    exclude 'com/sun/jna/**'
 
     exclude "architectury.common.json"
 
-    configurations = [project.configurations.shadowCommon]
+    configurations = [project.configurations.shadowCommon, project.configurations.shadow]
     classifier "dev-shadow"
 
-    //relocate 'uk.co.caprica', 'nick1st.uk.co.caprica' // <- this realocates the package
-    relocate "com.sun.jna", "putamierda.com.sun.jna" // TODO: FIX THIS. ESTO ES SOLO UN APAÑO DE MIERDA QUE OCUPA 3MB EXTRAS EN EL JAR
+    // relocate 'uk.co.caprica', 'nick1st.uk.co.caprica' // <- this realocates the package
 }
 
 remapJar {
