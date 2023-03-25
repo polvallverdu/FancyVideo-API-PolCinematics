@@ -25,7 +25,7 @@
 
 package nick1st.fancyvideo.internal; //NOSONAR
 
-import com.sun.jna.Platform; //NOSONAR
+import com.sun.jna.Platform;
 
 public enum Arch {
     x86,

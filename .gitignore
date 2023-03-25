@@ -1,14 +1,19 @@
-# idea
-out
+build/
 *.ipr
+run/
 *.iws
+out/
 *.iml
-.idea/*
-!.idea/scopes
+.gradle/
+output/
+bin/
+libs/
 
-# gradle
-build
-.gradle
-
-# other
-run
+.classpath
+.project
+.idea/
+classes/
+.metadata
+.vscode
+.settings
+*.launch

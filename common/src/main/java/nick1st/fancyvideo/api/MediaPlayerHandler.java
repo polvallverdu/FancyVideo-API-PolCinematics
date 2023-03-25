@@ -49,8 +49,8 @@ import java.util.Map;
  * If your player is not required anymore, use {@link AbstractMediaPlayer#markToRemove()} to free its resources. Calling {@link #getMediaPlayer(DynamicResourceLocation)} on a removed or
  * not existing player may <b> give you the fallback Player, effectively resulting in a {@link NullPointerException}</b>.
  * Use {@link #mediaPlayerExists(DynamicResourceLocation)} to check if your reference is valid. <br>
- * You <b>MUST</b> check if your reference is valid on a {@link nick1st.fancyvideo.api.eventbus.event.PlayerRegistryEvent.RemovePlayerEvent},
- * best in PRE-Phase and then decide whether to {@link nick1st.fancyvideo.api.eventbus.event.PlayerRegistryEvent.RemovePlayerEvent#setCanceled()}
+ * You <b>MUST</b> check if your reference is valid on a {@link PlayerRegistryEvent.RemovePlayerEvent},
+ * best in PRE-Phase and then decide whether to {@link PlayerRegistryEvent.RemovePlayerEvent#setCanceled()}
  * or releasing all your instances of your player, so that it can be cleaned up. <br>
  * Your object may get removed on shutdown, as this {@link #shutdown()}s the library.
  *
