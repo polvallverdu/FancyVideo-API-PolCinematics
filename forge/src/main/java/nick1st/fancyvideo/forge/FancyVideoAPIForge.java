@@ -1,6 +1,8 @@
 package nick1st.fancyvideo.forge;
 
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.EventSubclassTransformer;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -52,6 +54,14 @@ public class FancyVideoAPIForge {
             });
         }
 
+        MinecraftForge.EVENT_BUS.addListener(this::firstRenderTick);
         FancyVideoAPI.init(config);
+    }
+
+    public void firstRenderTick(TickEvent.RenderTickEvent event) {
+        if (!Constants.renderTick) {
+            FancyVideoAPI.apiSetup();
+            Constants.renderTick = true;
+        }
     }
 }

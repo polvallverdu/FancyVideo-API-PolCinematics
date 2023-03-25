@@ -1,5 +1,7 @@
 package nick1st.fancyvideo.fabric;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import nick1st.fancyvideo.Constants;
 import nick1st.fancyvideo.FancyVideoAPI;
 import net.fabricmc.api.ModInitializer;
@@ -30,5 +32,13 @@ public class FancyVideoAPIFabric implements ModInitializer {
 
     public static FancyVideoAPIFabric getInstance() {
         return instance;
+    }
+
+    public void firstRenderTick() {
+        // Ensure this only runs on the client (Not sure if this is required)
+        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT && !Constants.renderTick) {
+            FancyVideoAPI.apiSetup();
+            Constants.renderTick = true;
+        }
     }
 }

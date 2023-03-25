@@ -64,7 +64,7 @@ public class FancyVideoAPI {
     /**
      * This should be called as soon as a GL Context is available.
      */
-    public void apiSetup() {
+    public static void apiSetup() {
         // Setup API
         MediaPlayerHandler.getInstance();
         try {

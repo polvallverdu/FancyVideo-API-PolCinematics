@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "nick1st.fancyvideo.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "FirstTickRenderMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

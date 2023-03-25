@@ -19,6 +19,9 @@
       "nick1st.fancyvideo.fabric.FancyVideoAPIFabric"
     ]
   },
+  "mixins": [
+    "fancyvideo.mixins.json"
+  ],
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.19.4",
