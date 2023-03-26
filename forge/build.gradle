@@ -32,7 +32,11 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    shadow(implementation("uk.co.caprica:vlcj:${vlcj_version}")) {
+    shadow(
+            forgeRuntimeLibrary(
+                    implementation("uk.co.caprica:vlcj:${vlcj_version}")
+            )
+    ) {
         exclude group: 'net.java.dev.jna', module: 'jna'
         exclude group: 'net.java.dev.jna', module: 'jna-platform'
     }
