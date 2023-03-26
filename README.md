@@ -1,25 +1,37 @@
-# MultiLoader Template
+# FancyVideo-API
+VLC API to play video and audio on Minecraft. Works on Fabric and Forge. It's an API for developers.
 
-This project provides a Gradle project template that can compile mods for both Forge and Fabric using a common sourceset. This project does not require any third party libraries or dependencies.
+Uses [Architectury API](https://docs.architectury.dev/).
 
-## Getting Started
+## How to use
+### For users
+1. Download Architectury API from [modrinth](https://modrinth.com/mod/architectury-api/versions) or [curseforge](https://www.curseforge.com/minecraft/mc-mods/architectury-api/files).
+2. Download the latest release from the [releases](https://github.com/polvallverdu/FancyVideo-API-PolCinematics/releases) page.
 
-## IntelliJ IDEA
-This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up Forge and Fabric independently and should be very familiar to anyone who has worked with their MDKs.
+### For developers
 
-1. Clone or download this repository to your computer.
-2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`.
-3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README file and the gradlew executable.
-4. If your default JVM/JDK is not Java 16 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`and changing the value to a valid Java 16 JVM. You will also need to set the Project SDK to Java 16. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
-5. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Common > Tasks > vanilla gradle > decompile`. Run this task to decompile Minecraft.
-6. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Forge > Tasks > forgegradle runs > genIntellijRuns`. Run this task to set up run configurations for Forge.
-7. Open your Run/Debug Configurations. Under the Application category there should now be options to run Forge and Fabric projects. Select one of the client options and try to run it.
-8. Assuming you were able to run the game in step 7 your workspace should now be set up.
+You can you use it with Gradle by adding the following to your `build.gradle`:
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
 
-### Eclipse
-Eclipse is not supported. During the development of this mod and the template it uses multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. Eclipse is considered unsupported by this project.
+dependencies {
+    implementation("com.github.polvallverdu:FancyVideo-API-PolCinematics:{version or commit hash}")
+}
+```
 
-## Development Guide
-When using this template the majority of your mod is developed in the Common project. The Common project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The Common project has no knowledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the Forge or Fabric project.
+And for fabric/forge subprojects:
+```groovy
+dependencies {
+   modApi("com.github.polvallverdu:FancyVideo-API-PolCinematics-{fabric/forge):{version or commit hash}")
+}
+```
 
-Loader specific projects such as the Forge and Fabric project are used to load the Common project into the game. These projects also define code that is specific to that loader. Loader specific projects can access all of the code in the Common project. It is important to remember that the Common project can not access code from loader specific projects.
+## Past contributors
+- [Nick1st](https://github.com/Nick1st)
+
+## Currently supported platforms
+- Windows 10/11
+- macOS
+- Linux
