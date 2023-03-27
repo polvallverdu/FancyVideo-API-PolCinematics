@@ -5,11 +5,12 @@
   "name": "FancyVideo-API",
   "description": "A mod for rendering videos in minecraft.",
   "authors": [
+    "pol_vallverdu",
     "Nick1st"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/fancyvideo-api",
-    "sources": "https://github.com/Nick1st/FancyVideo-API/issues"
+    "homepage": "",
+    "sources": "https://github.com/polvallverdu/FancyVideo-API-PolCinematics"
   },
   "license": "GNU GPL 3.0",
   "icon": "fancyvideo-api.png",
@@ -26,5 +27,12 @@
     "fabric": "*",
     "minecraft": ">=1.19.4",
     "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "polcinematics",
+      "badges": ["library"],
+      "update_checker": false
+    }
   }
 }
