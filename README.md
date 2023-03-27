@@ -17,14 +17,14 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.polvallverdu:FancyVideo-API-PolCinematics:{version or commit hash}")
+    implementation("com.github.polvallverdu.FancyVideo-API-PolCinematics:fancyvideo:{release or commit hash}")
 }
 ```
 
 And for fabric/forge subprojects:
 ```groovy
 dependencies {
-   modApi("com.github.polvallverdu:FancyVideo-API-PolCinematics-{fabric/forge):{version or commit hash}")
+   modApi("com.github.polvallverdu.FancyVideo-API-PolCinematics:fancyvideo-{fabric/forge):{release or commit hash}")
 }
 ```
 
