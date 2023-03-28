@@ -33,6 +33,7 @@ import nick1st.fancyvideo.api.DynamicResourceLocation;
 import nick1st.fancyvideo.api.internal.MediaPlayerCallback;
 import nick1st.fancyvideo.api.internal.SelfCleaningDynamicTexture;
 import nick1st.fancyvideo.api.internal.utils.IntegerBuffer2D;
+import uk.co.caprica.vlcj.player.base.MediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
 /**
@@ -76,7 +77,7 @@ public class MediaPlayerBase extends AbstractMediaPlayer {
      * @since 0.2.0.0
      */
     @Override
-    public EmbeddedMediaPlayer api() {
+    public MediaPlayer api() {
         return null;
     }
 

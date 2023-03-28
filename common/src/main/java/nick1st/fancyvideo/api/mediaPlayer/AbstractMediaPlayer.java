@@ -25,6 +25,7 @@
 
 package nick1st.fancyvideo.api.mediaPlayer; //NOSONAR
 
+import uk.co.caprica.vlcj.player.base.MediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
 /**
@@ -36,11 +37,11 @@ import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 public abstract class AbstractMediaPlayer { //NOSONAR
 
     /**
-     * @return This returns the true {@link EmbeddedMediaPlayer}, allowing you to use most functions of libvlc.
+     * @return This returns the true {@link MediaPlayer}, allowing you to use most functions of libvlc.
      * This is now the preferred way to call into VLCJ's API. You must be aware that crashes in the native lib will lead to null pointers.
      * @since 0.2.0.0
      */
-    public abstract EmbeddedMediaPlayer api();
+    public abstract MediaPlayer api();
 
     /**
      * Call this to remove (/unregister) your MediaPlayer.

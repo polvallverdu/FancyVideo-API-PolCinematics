@@ -5,6 +5,7 @@ import nick1st.fancyvideo.api.DynamicResourceLocation;
 import nick1st.fancyvideo.api.MediaPlayerHandler;
 import uk.co.caprica.vlcj.factory.MediaPlayerFactory;
 
+@Deprecated // Use MediaPlayerBase instead. This just was a try to migrate system, but it's not worth it.
 public abstract class MediaPlayer {
 
     public static final MediaPlayerFactory MEDIA_PLAYER_FACTORY = new MediaPlayerFactory();

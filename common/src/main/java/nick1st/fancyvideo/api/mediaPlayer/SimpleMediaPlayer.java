@@ -31,6 +31,7 @@ import nick1st.fancyvideo.api.DefaultBufferFormatCallback;
 import nick1st.fancyvideo.api.DynamicResourceLocation;
 import nick1st.fancyvideo.api.MediaPlayerHandler;
 import nick1st.fancyvideo.api.internal.utils.IntegerBuffer2D;
+import uk.co.caprica.vlcj.player.base.MediaPlayer;
 import uk.co.caprica.vlcj.player.component.CallbackMediaListPlayerComponent;
 import uk.co.caprica.vlcj.player.component.CallbackMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -65,7 +66,7 @@ public class SimpleMediaPlayer extends MediaPlayerBase {
      * @since 0.2.0.0
      */
     @Override
-    public EmbeddedMediaPlayer api() {
+    public MediaPlayer api() {
         return Constants.NO_LIBRARY_MODE ? null : mediaPlayerComponent.mediaPlayer();
     }
 
