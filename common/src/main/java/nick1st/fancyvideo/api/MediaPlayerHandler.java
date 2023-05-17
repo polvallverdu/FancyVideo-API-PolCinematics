@@ -165,24 +165,34 @@ public final class MediaPlayerHandler {
     private <T extends AbstractMediaPlayer> T createPlayerForMe(DynamicResourceLocation resourceLocation, Class<T> clazz, Object... arguments) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class<?>[] allArgClass;
         Object[] allArgs;
-        int j = (MediaPlayerBase.class.isAssignableFrom(clazz)) ? 1 : 0;
+        // int j = (MediaPlayerBase.class.isAssignableFrom(clazz)) ? 1 : 0;
         if (arguments != null) {
-            int i = j;
-            allArgClass = new Class[arguments.length + j];
-            allArgs = new Object[arguments.length + j];
+            // int i = j;
+            // allArgClass = new Class[arguments.length + j];
+            // allArgs = new Object[arguments.length + j];
+            int i = 1; // This seems to be something for the future, but resourceLocation will be always needed (at least for mc).
+            // allArgClass = new Class[arguments.length + j];
+            // allArgs = new Object[arguments.length + j];
+            allArgClass = new Class[arguments.length + 1];
+            allArgs = new Object[arguments.length + 1];
             for (Object o : arguments) {
                 allArgClass[i] = o.getClass();
                 allArgs[i] = o;
                 i++;
             }
         } else {
-            allArgClass = new Class[j];
-            allArgs = new Object[j];
+            // allArgClass = new Class[j];
+            // allArgs = new Object[j];
+            allArgClass = new Class[1];
+            allArgs = new Object[1];
         }
-        if (MediaPlayerBase.class.isAssignableFrom(clazz)) {
-            allArgClass[0] = resourceLocation.getClass();
-            allArgs[0] = resourceLocation;
-        }
+        // if (MediaPlayerBase.class.isAssignableFrom(clazz)) {
+        //     allArgClass[0] = resourceLocation.getClass();
+        //     allArgs[0] = resourceLocation;
+        // }
+
+        allArgClass[0] = resourceLocation.getClass();
+        allArgs[0] = resourceLocation;
 
         return clazz.getDeclaredConstructor(allArgClass).newInstance(allArgs);
     }
