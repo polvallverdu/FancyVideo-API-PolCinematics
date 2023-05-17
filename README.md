@@ -1,12 +1,11 @@
 # FancyVideo-API
 VLC API to play video and audio on Minecraft. Works on Fabric and Forge. It's an API for developers.
 
-Uses [Architectury API](https://docs.architectury.dev/).
+[![](https://jitpack.io/v/dev.polv/fancyvideo-api-polcinematics.svg)](https://jitpack.io/#dev.polv/fancyvideo-api-polcinematics)
 
 ## How to use
 ### For users
-1. Download Architectury API from [modrinth](https://modrinth.com/mod/architectury-api/versions) or [curseforge](https://www.curseforge.com/minecraft/mc-mods/architectury-api/files).
-2. Download the latest release from the [releases](https://github.com/polvallverdu/FancyVideo-API-PolCinematics/releases) page.
+1. Download the latest release from the [releases](https://github.com/polvallverdu/FancyVideo-API-PolCinematics/releases) or [modrinth](https://modrinth.com/mod/fancyvideoapi-pol).
 
 ### For developers
 
@@ -17,14 +16,14 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.polvallverdu.FancyVideo-API-PolCinematics:fancyvideo:{release or commit hash}")
+    implementation("dev.polv.FancyVideo-API-PolCinematics:fancyvideo:{release or commit hash}")
 }
 ```
 
 And for fabric/forge subprojects:
 ```groovy
 dependencies {
-   modApi("com.github.polvallverdu.FancyVideo-API-PolCinematics:fancyvideo-{fabric/forge):{release or commit hash}")
+   modApi("dev.polv.FancyVideo-API-PolCinematics:fancyvideo-{fabric/forge):{release or commit hash}")
 }
 ```
 
@@ -32,6 +31,6 @@ dependencies {
 - [Nick1st](https://github.com/Nick1st)
 
 ## Currently supported platforms
-- Windows 10/11
-- macOS
-- Linux
+-[X] Windows 10/11
+-[ ] macOS
+-[ ] Linux

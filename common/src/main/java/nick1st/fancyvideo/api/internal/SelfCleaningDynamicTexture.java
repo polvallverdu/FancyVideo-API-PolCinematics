@@ -29,8 +29,7 @@ import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.platform.TextureUtil;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import nick1st.fancyvideo.Constants;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Implementation of a self-cleaning DynamicTexture. Allows for high frame rate uploads.
@@ -43,7 +42,7 @@ public class SelfCleaningDynamicTexture extends DynamicTexture {
     }
 
     @Override
-    public void setPixels(@Nonnull NativeImage nativeImage) {
+    public void setPixels(@NotNull NativeImage nativeImage) {
         super.setPixels(nativeImage);
         if (this.getPixels() != null) {
             TextureUtil.prepareImage(this.getId(), this.getPixels().getWidth(), this.getPixels().getHeight());

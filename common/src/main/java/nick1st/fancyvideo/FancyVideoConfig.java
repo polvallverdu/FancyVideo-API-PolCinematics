@@ -25,7 +25,6 @@
 
 package nick1st.fancyvideo; //NOSONAR
 
-import dev.architectury.platform.Platform;
 import nick1st.fancyvideo.config.SimpleConfig;
 
 import java.io.File;
@@ -45,9 +44,8 @@ public class FancyVideoConfig extends SimpleConfig {
             }
             return false;
         });
-        if (Platform.isForge()) {
-            setProperty("debugLog", String.valueOf(false), "Enable debug logging. Disables the ModLauncher log filter. This cause massive log spam! Only activate this when you're told to!", "true / false", s -> Arrays.asList("true", "false").contains(s));
-        }
+        // TODO
+        // setProperty("debugLog", String.valueOf(false), "Enable debug logging. Disables the ModLauncher log filter. This cause massive log spam! Only activate this when you're told to!", "true / false", s -> Arrays.asList("true", "false").contains(s));
         setProperty("example", String.valueOf(false), "Activate the debug/showcase mode. Access it by pressing the Options Button in Main Menu.", "true / false", s -> Arrays.asList("true", "false").contains(s));
 
         read();
