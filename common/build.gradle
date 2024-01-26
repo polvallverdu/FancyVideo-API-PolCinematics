@@ -7,7 +7,7 @@ architectury {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/fancyvideo-api.accesswidener")
+    accessWidenerPath = file("src/main/resources/vlcvideo-api.accesswidener")
 }
 
 dependencies {

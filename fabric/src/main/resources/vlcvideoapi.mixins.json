@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "dev.polv.vlcvideo.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "FirstTickRenderMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "fancyvideo_api",
+  "id": "vlcvideoapi",
   "version": "${version}",
-  "name": "FancyVideo-API",
-  "description": "A mod for rendering videos in minecraft.",
+  "name": "VLCVideoAPI",
+  "description": "A mod for rendering videos in Minecraft with VLC.",
   "authors": [
     "pol_vallverdu",
     "Nick1st"
   ],
   "contact": {
     "homepage": "",
-    "sources": "https://github.com/polvallverdu/FancyVideo-API-PolCinematics"
+    "sources": "https://github.com/polvallverdu/VLCVideo-API-PolCinematics"
   },
   "license": "GNU GPL 3.0",
-  "icon": "fancyvideo-api.png",
+  "icon": "vlcvideoapi.png",
   "environment": "client",
   "entrypoints": {
     "main": [
-      "nick1st.fancyvideo.fabric.FancyVideoAPIFabric"
+      "dev.polv.vlcvideo.fabric.VLCVideoAPIFabric"
     ]
   },
   "mixins": [
-    "fancyvideo.mixins.json"
+    "vlcvideoapi.mixins.json"
   ],
   "depends": {
     "fabric": "*",

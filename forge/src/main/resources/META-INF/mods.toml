@@ -2,29 +2,29 @@ modLoader = "javafml"
 loaderVersion = "[43,)"
 #issueTrackerURL = ""
 license="GNU GPL v3, https://www.gnu.org/licenses/gpl-3.0.en.html"
-issueTrackerURL="https://github.com/Nick1st/FancyVideo-API/issues"
+issueTrackerURL="https://github.com/polvallverdu/VLCVideo-API-PolCinematics/issues"
 [[mods]]
-modId = "fancyvideo_api"
+modId = "vlcvideoapi"
 version = "${version}"
-displayName = "FancyVideo-API"
+displayName = "VLCVideoAPI"
 authors = "pol_vallverdu, Nick1st"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/fancyvideo-api"
-logoFile="fancyvideo-api.png" #optional
+displayURL="https://github.com/polvallverdu/VLCVideo-API-PolCinematics"
+logoFile="vlcvideoapi.png" #optional
 credits="Thanks for Nick1st for creating FancyVideo-API. Thanks to the team behind VLC and Caprica for VLCJ, without them this mod wouldn't be possible. Also huge THANKS to Silk for helping me out with a few ideas, that made this finally possible. Huge thanks to Jared for making multi platform modding so easy." #optional
 description = '''
-A mod for rendering videos in minecraft.
+A mod for rendering videos in Minecraft using VLC.
 '''
 displayTest = "IGNORE_SERVER_VERSION"
 #logoFile = ""
 
-[[dependencies.fancyvideo_api]]
+[[dependencies.vlcvideoapi]]
 modId = "forge"
 mandatory = true
 versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.fancyvideo_api]]
+[[dependencies.vlcvideoapi]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19.4,)"
