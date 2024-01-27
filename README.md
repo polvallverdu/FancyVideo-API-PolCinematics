@@ -16,14 +16,14 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.polv.VLCVideo-API-PolCinematics:vlcvideo:{release or commit hash}")
+    implementation("dev.polv.VLCVideo-API-PolCinematics:vlcvideoapi:2.1.0")
 }
 ```
 
 And for fabric/forge subprojects:
 ```groovy
 dependencies {
-   modApi("dev.polv.VLCVideo-API-PolCinematics:vlcvideo-{fabric/forge):{release or commit hash}")
+   modApi("dev.polv.VLCVideo-API-PolCinematics:vlcvideoapi-{fabric/forge):2.1.0")
 }
 ```
 
