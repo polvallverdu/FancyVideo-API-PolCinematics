@@ -23,42 +23,75 @@
  * Copyright 2024 <https://polv.dev/>
  */
 
-package dev.polv.vlcvideo.api.mediaPlayer;
+package dev.polv.vlcvideo.api.mediaPlayer; //NOSONAR
 
-import dev.polv.vlcvideo.api.internal.AudioPlayerCallback;
 import dev.polv.vlcvideo.api.DynamicResourceLocation;
 import dev.polv.vlcvideo.api.MediaPlayerHandler;
+import dev.polv.vlcvideo.api.OptimizedBufferFormatCallback;
+import dev.polv.vlcvideo.api.internal.AudioPlayerCallback;
+import dev.polv.vlcvideo.api.internal.OptimizedMediaPlayerCallback;
+import net.minecraft.client.Minecraft;
 import uk.co.caprica.vlcj.player.base.MediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
+import uk.co.caprica.vlcj.player.embedded.videosurface.CallbackVideoSurface;
 
-public class AudioMediaPlayer extends AbstractMediaPlayer {
+/**
+ * For most custom implementation this should be enough to override.
+ *
+ * @see AbstractMediaPlayer
+ * @since 0.2.0.0
+ */
+@SuppressWarnings("unused")
+public class OptimizedMediaPlayer extends AbstractMediaPlayer {
 
     private static final String FORMAT = "S16N";
     private static final int RATE = 44100;
     private static final int CHANNELS = 2;
 
-    private final MediaPlayer mediaPlayer;
+    protected OptimizedMediaPlayerCallback renderer;
+    protected EmbeddedMediaPlayer mediaPlayer;
 
     private DynamicResourceLocation resourceLocation;
 
-    public AudioMediaPlayer(DynamicResourceLocation resourceLocation) {
+    public OptimizedMediaPlayer(DynamicResourceLocation resourceLocation) {
         this.resourceLocation = resourceLocation;
-        this.mediaPlayer = MediaPlayerHandler.getInstance().getFactory().mediaPlayers().newMediaPlayer();
+
+        renderer = new OptimizedMediaPlayerCallback(false);
+        this.mediaPlayer = MediaPlayerHandler.getInstance().getFactory().mediaPlayers().newEmbeddedMediaPlayer();
+
         try {
             this.mediaPlayer.audio().callback(FORMAT, RATE, CHANNELS, new AudioPlayerCallback(FORMAT, RATE, CHANNELS));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        CallbackVideoSurface videoSurface = MediaPlayerHandler.getInstance().getFactory().videoSurfaces().newVideoSurface(new OptimizedBufferFormatCallback(), renderer, true);
+        this.mediaPlayer.videoSurface().set(videoSurface);
+        this.mediaPlayer.videoSurface().attachVideoSurface();
+
+        Minecraft.getInstance().submit(renderer::initialize);
     }
 
+    /**
+     * Template methode. <br>
+     * Overrides should always return a valid {@link EmbeddedMediaPlayer}
+     *
+     * @return null
+     * @since 0.2.0.0
+     */
     @Override
     public MediaPlayer api() {
-        return mediaPlayer;
+        return this.mediaPlayer;
+    }
+
+    public OptimizedMediaPlayerCallback getRenderer() {
+        return renderer;
     }
 
     @Override
     public void markToRemove() {
         MediaPlayerHandler.getInstance().flagPlayerRemoval(this.resourceLocation);
+
     }
 
     @Override
@@ -73,4 +106,5 @@ public class AudioMediaPlayer extends AbstractMediaPlayer {
     public boolean providesAPI() {
         return true;
     }
+
 }
