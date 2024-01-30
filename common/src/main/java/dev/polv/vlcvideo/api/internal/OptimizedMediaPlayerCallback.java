@@ -1,6 +1,7 @@
 package dev.polv.vlcvideo.api.internal;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Minecraft;
 import uk.co.caprica.vlcj.player.base.MediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.videosurface.callback.BufferFormat;
 import uk.co.caprica.vlcj.player.embedded.videosurface.callback.RenderCallback;
@@ -62,6 +63,8 @@ public class OptimizedMediaPlayerCallback implements RenderCallback {
 
     @Override
     public void display(MediaPlayer mediaPlayer, ByteBuffer[] nativeBuffers, BufferFormat bufferFormat) {
-        onPaint(nativeBuffers[0], bufferFormat.getWidth(), bufferFormat.getHeight());
+        Minecraft.getInstance().submit(() -> {
+            onPaint(nativeBuffers[0], bufferFormat.getWidth(), bufferFormat.getHeight());
+        });
     }
 }
